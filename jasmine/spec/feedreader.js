@@ -46,7 +46,7 @@ $(function() {
          it('name is defined and not empty', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe(0);
+                expect(feed.name.length).not.toBe(0);
             });
          });
     });
@@ -69,13 +69,14 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          // after the menu icon is clicked once, the menu should display
           it('is visible when clicked',function() {
             hamburgerMenu.click();
-            expect($('.menu-hidden').is(':visible')).toBe(false);
+            expect($('body').hasClass('menu-hidden')).toBe(false);
           });
           it('is hidden when clicked again', function() {
             hamburgerMenu.click();
-            expect($('.menu-hidden').is(':visible')).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
           });
     });
 
